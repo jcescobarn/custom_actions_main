@@ -25,7 +25,7 @@ func main() {
 	Paths := types.Paths{
 		Quantity: &quantity,
 		Items:    array_paths,
-	} //os.Getenv("invalidation_paths")
+	}
 	invalidationBatchVar := types.InvalidationBatch{
 		CallerReference: &distributionID,
 		Paths:           &Paths,
