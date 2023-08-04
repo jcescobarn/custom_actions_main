@@ -31,7 +31,6 @@ func main() {
 		Paths:           &Paths,
 	}
 
-	// Validar si hay valores para las credenciales
 	if accessKey == "" || secretKey == "" || distributionID == "" || invalidationPaths == "" {
 		fmt.Println("Error: AWS_ACCESS_KEY_ID y AWS_SECRET_ACCESS_KEY deben estar configurados")
 		return
