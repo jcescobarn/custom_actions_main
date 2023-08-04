@@ -1,0 +1,27 @@
+name: "CloudFront Invalidation"
+description: "Genera una invalidación de CloudFront para las rutas especificadas."
+inputs:
+  cloudfront_distribution_id:
+    description: "cloudfront distribution Id"
+    required: true
+  invalidation_paths:
+    description: "The paths to override, separated by commas (for example: /path1,/path2)"
+    required: true
+    default: '/*'
+  aws_access_key_id:
+    description: "AWS Access key id"
+    required: true
+  aws_secret_access_key:
+    description: AWS Secret access key"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: "Cloudfront Invalidation"
+      run: "go run main.go"
+      shell: bash
+      env:
+        distribution_id: ${{ inputs.cloudfront_distribution_id }}
+        invalidation_paths: ${{ inputs.invalidation_paths }}
+        access_key_id: ${{ inputs.aws_access_key_id }}
+        aws_secret_access_key: ${{ inputs.aws_secret_access_key }}
